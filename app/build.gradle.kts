@@ -24,6 +24,8 @@ dependencies {
     implementation(libs.androidx.coordinator)
     implementation(libs.androidx.recyclerview)
     implementation(libs.google.material)
+    implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
+
 }
 
 tasks.getByName("clean", type = Delete::class) {

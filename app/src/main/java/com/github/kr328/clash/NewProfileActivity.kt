@@ -46,6 +46,10 @@ class NewProfileActivity : BaseActivity<NewProfileDesign>() {
                                         create(Profile.Type.File, name)
                                     is ProfileProvider.Url ->
                                         create(Profile.Type.Url, name)
+                                    is ProfileProvider.QR -> {
+                                        val  url = "https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=30d90424070ef1159ed206b3481ecc88"
+                                        create(Profile.Type.Url, name,url)
+                                    }
                                     is ProfileProvider.External -> {
                                         val data = p.get()
 
@@ -137,7 +141,7 @@ class NewProfileActivity : BaseActivity<NewProfileDesign>() {
                 ProfileProvider.External(name.toString(), summary.toString(), icon, intent)
             }
 
-            listOf(ProfileProvider.File(self), ProfileProvider.Url(self)) + providers
+            listOf(ProfileProvider.File(self), ProfileProvider.Url(self),ProfileProvider.QR(self)) + providers
         }
     }
 }
